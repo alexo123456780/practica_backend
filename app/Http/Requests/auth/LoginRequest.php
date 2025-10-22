@@ -35,8 +35,9 @@ class LoginRequest extends FormRequest
 
         return 
         [
-            
 
+            'txtemail.required' => 'Este campo es obligatorio',
+            'txtpassword.required' => 'Este campo es obligatorio'
         ];
         
     }
