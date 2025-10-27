@@ -11,15 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tbl_productos', function (Blueprint $table) {
+        Schema::create('tbl_categorias', function (Blueprint $table) {
             $table->id('iid');
-            $table->string('txtclave');
             $table->string('txtnombre');
-            $table->text('txtdescripcion')->nullable();
             $table->string('txtimagen')->nullable();
-            $table->integer('istock')->default(1);
-            $table->unsignedBigInteger('iidcategoria');
-            $table->foreign('iidcategoria')->references('iid')->on('tbl_categorias')->onDelete('cascade');
             $table->boolean('bactivo')->default(true);
             $table->timestamps();
         });
@@ -30,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tbl_productos');
+        Schema::dropIfExists('tbl_categorias');
     }
 };

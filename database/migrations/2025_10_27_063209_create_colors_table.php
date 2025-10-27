@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categorias', function (Blueprint $table) {
-            $table->id();
+        Schema::create('tbl_colores', function (Blueprint $table) {
+            $table->id('iid');
+            $table->string('txtnombre');
+            $table->string('txthexadecimal');
+            $table->boolean('bactivo')->default(true);
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categorias');
+        Schema::dropIfExists('tbl_colores');
     }
 };
