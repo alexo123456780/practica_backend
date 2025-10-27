@@ -16,9 +16,17 @@ class LoginController extends Controller
 
         try{
 
-            $body = $credenciales->validated();
+           $body =  $credenciales->validated();
 
-            if(!Auth::attempt($body))
+            $map = 
+            [
+                'txtemail' => $body['txtemail'],
+                'password' => $body['txtpassword'],
+
+            ];
+
+
+            if(!Auth::attempt($map))
             {
                 return response()->json([
 
@@ -32,7 +40,7 @@ class LoginController extends Controller
 
             $expiration = Carbon::now()->addMinutes(1440);
 
-            $token = $user->createToken('authToken', ['*']  , $expiration )->plainTextToken();
+            $token = $user->createToken('authToken', ['*']  , $expiration )->plainTextToken;
 
             return response()->json([
 

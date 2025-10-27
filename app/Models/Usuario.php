@@ -42,7 +42,8 @@ class Usuario extends Authenticatable
         'txtavatar',
         'enumsexo',
         'iedad',
-        'bactivo'
+        'bactivo',
+        'roles'
     ];
 
     protected $hidden = 
@@ -55,6 +56,10 @@ class Usuario extends Authenticatable
         'bactivo' => 'boolean'
     ];
 
+
+   
+    
+    
     public function getAuthPassword()
     {
 
@@ -63,7 +68,6 @@ class Usuario extends Authenticatable
     }
 
 
-    
 
     public function roles(): BelongsToMany{
 
